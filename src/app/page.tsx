@@ -136,14 +136,14 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-surface-lightBg dark:bg-surface-darkBg text-surface-lightText dark:text-[#F5EEF3] transition-colors selection:bg-maroon-700 selection:text-gold-300">
+    <div className="min-h-screen bg-white dark:bg-surface-darkBg text-zinc-950 dark:text-[#F5EEF3] transition-colors selection:bg-maroon-700 selection:text-gold-300">
       <Navbar />
 
       {/* HERO SECTION */}
-      <section className="relative pt-12 pb-24 sm:pt-20 sm:pb-32 overflow-hidden">
+      <section className="relative pt-12 pb-24 sm:pt-20 sm:pb-32 overflow-hidden bg-white dark:bg-surface-darkBg">
         {/* Ambient Gradient Glow Orbs */}
-        <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-[650px] h-[450px] bg-gradient-to-tr from-maroon-700/25 via-burgundy-600/20 to-gold-400/10 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute top-10 right-10 w-80 h-80 bg-maroon-800/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-[650px] h-[450px] bg-gradient-to-tr from-maroon-700/15 via-burgundy-600/10 to-gold-400/10 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-10 right-10 w-80 h-80 bg-maroon-800/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* TWO COLUMN RESPONSIVE HERO: LEFT TEXT & RIGHT ANIMATED SOCIAL ICONS */}
@@ -154,9 +154,9 @@ export default function LandingPage() {
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-maroon-900/30 dark:bg-maroon-900/40 border border-maroon-700/50 text-gold-300 text-xs font-semibold uppercase tracking-wider shadow-sm backdrop-blur-md"
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-maroon-100/90 dark:bg-maroon-900/40 border border-maroon-300 dark:border-maroon-700/50 text-maroon-900 dark:text-gold-300 text-xs font-bold uppercase tracking-wider shadow-sm backdrop-blur-md"
               >
-                <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+                <Sparkles className="w-3.5 h-3.5 text-maroon-700 dark:text-gold-400" />
                 <span>Enterprise Omnichannel Social Suite 2026</span>
               </motion.div>
 
@@ -165,10 +165,10 @@ export default function LandingPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-surface-lightText dark:text-white font-sans leading-[1.1]"
+                className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-zinc-950 dark:text-white font-sans leading-[1.1]"
               >
                 Manage Every Social Platform.{' '}
-                <span className="block mt-2 bg-gradient-to-r from-maroon-600 via-burgundy-500 to-gold-400 bg-clip-text text-transparent">
+                <span className="block mt-2 bg-gradient-to-r from-maroon-700 via-burgundy-600 to-amber-600 dark:from-maroon-500 dark:via-burgundy-400 dark:to-gold-400 bg-clip-text text-transparent">
                   From One Powerful Dashboard.
                 </span>
               </motion.h1>
@@ -178,7 +178,7 @@ export default function LandingPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-base sm:text-lg lg:text-xl text-surface-lightMuted max-w-2xl leading-relaxed"
+                className="text-base sm:text-lg lg:text-xl text-zinc-700 dark:text-zinc-300 font-medium max-w-2xl leading-relaxed"
               >
                 Create, schedule, publish, analyze, and manage your entire social media presence from one beautifully connected workspace.
               </motion.p>
@@ -201,22 +201,22 @@ export default function LandingPage() {
 
                 <Link
                   href="/login"
-                  className="px-8 py-4 rounded-2xl bg-white dark:bg-surface-darkCard hover:bg-surface-lightBg dark:hover:bg-surface-darkHover border border-surface-lightBorder dark:border-surface-darkBorder/80 text-surface-lightText dark:text-white font-semibold text-sm transition-all text-center"
+                  className="px-8 py-4 rounded-2xl bg-white hover:bg-zinc-50 dark:bg-surface-darkCard dark:hover:bg-surface-darkHover border border-zinc-300 dark:border-surface-darkBorder/80 text-zinc-950 dark:text-white font-bold text-sm shadow-sm transition-all text-center"
                 >
                   Sign In
                 </Link>
               </motion.div>
 
               {/* Trust Guarantees */}
-              <div className="pt-2 flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-surface-lightMuted">
+              <div className="pt-2 flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-semibold text-zinc-800 dark:text-zinc-300">
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" /> No credit card required
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> No credit card required
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Instant OAuth setup
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> Instant OAuth setup
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Cancel anytime
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> Cancel anytime
                 </span>
               </div>
             </div>
@@ -310,16 +310,16 @@ export default function LandingPage() {
       <SocialPlatformsSlider />
 
       {/* CORE FEATURES SECTION */}
-      <section id="features" className="py-24 sm:py-32">
+      <section id="features" className="py-24 sm:py-32 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <span className="text-xs font-bold text-gold-400 uppercase tracking-widest font-sans">
+            <span className="text-xs font-bold text-maroon-700 dark:text-gold-400 uppercase tracking-widest font-sans">
               Engineered For High Growth
             </span>
-            <h2 className="text-3xl sm:text-5xl font-black text-surface-lightText dark:text-white tracking-tight font-sans">
+            <h2 className="text-3xl sm:text-5xl font-black text-zinc-950 dark:text-white tracking-tight font-sans">
               Everything Your Brand Needs To Dominate Social Media
             </h2>
-            <p className="text-sm sm:text-base text-surface-lightMuted leading-relaxed">
+            <p className="text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed font-medium">
               Eliminate disconnected browser extensions and manual spreadsheet trackers with our unified, enterprise-grade operating system.
             </p>
           </div>
@@ -330,15 +330,15 @@ export default function LandingPage() {
               return (
                 <div
                   key={i}
-                  className="p-8 rounded-3xl bg-white dark:bg-surface-darkCard border border-surface-lightBorder dark:border-surface-darkBorder/60 shadow-sm hover:shadow-luxury transition-all space-y-4 group"
+                  className="p-8 rounded-3xl bg-white dark:bg-surface-darkCard border border-zinc-200 dark:border-surface-darkBorder/60 shadow-sm hover:shadow-luxury transition-all space-y-4 group"
                 >
                   <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-maroon-700 to-burgundy-600 text-gold-300 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h3 className="text-lg font-bold text-surface-lightText dark:text-white font-sans">
+                  <h3 className="text-lg font-bold text-zinc-950 dark:text-white font-sans">
                     {f.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-surface-lightMuted leading-relaxed">
+                  <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed font-medium">
                     {f.desc}
                   </p>
                 </div>
@@ -348,24 +348,234 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* 1. PUBLISHING STUDIO SECTION (#publishing) */}
+      <section id="publishing" className="py-24 sm:py-32 bg-zinc-50/70 dark:bg-[#130F14] border-t border-zinc-200 dark:border-surface-darkBorder/40 transition-colors scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-maroon-100 dark:bg-maroon-900/40 border border-maroon-300 dark:border-gold-400/30 text-maroon-900 dark:text-gold-300 text-xs font-bold uppercase tracking-wider">
+              <Send className="w-3.5 h-3.5 text-maroon-700 dark:text-gold-400" />
+              <span>Omnichannel Composer</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-black text-zinc-950 dark:text-white tracking-tight font-sans">
+              Unified Publishing Studio
+            </h2>
+            <p className="text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed font-medium">
+              Draft once and publish simultaneously across Instagram, YouTube, TikTok, LinkedIn, X, Facebook, Pinterest, Snapchat, and Kick with algorithm-tuned format adaptors.
+            </p>
+          </div>
+
+          {/* Interactive Composer Mockup */}
+          <div className="max-w-5xl mx-auto rounded-3xl bg-white dark:bg-surface-darkCard border border-zinc-200 dark:border-surface-darkBorder/60 shadow-xl overflow-hidden">
+            <div className="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-7 space-y-5">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="px-3 py-1 rounded-lg bg-pink-100 dark:bg-pink-900/40 text-pink-700 dark:text-pink-300 text-xs font-bold">Instagram Reel</span>
+                  <span className="px-3 py-1 rounded-lg bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-xs font-bold">LinkedIn Article</span>
+                  <span className="px-3 py-1 rounded-lg bg-zinc-200 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 text-xs font-bold">X Thread (1/3)</span>
+                  <span className="px-3 py-1 rounded-lg bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300 text-xs font-bold">YouTube Short</span>
+                  <span className="px-3 py-1 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-xs font-bold">Kick Live</span>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-[#120E12] border border-zinc-200 dark:border-surface-darkBorder/50 space-y-3">
+                  <p className="text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 font-medium">
+                    &quot;Excited to unveil the 2026 Omnichannel Social Growth Blueprint. Learn how high-growth teams run publishing, real-time community engagement, and cross-channel attribution from one central command center. #Marketing2026 #Growth #SocialHubPro&quot;
+                  </p>
+                  <div className="flex items-center justify-between text-xs text-zinc-500 font-mono pt-2 border-t border-zinc-200 dark:border-zinc-800">
+                    <span className="text-emerald-600 dark:text-emerald-400 font-bold">✓ 234 / 2,200 chars (Safe for all 9 networks)</span>
+                    <span>Peak Slot: Tomorrow 09:30 AM EST</span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 text-xs font-semibold text-zinc-800 dark:text-zinc-300">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                    <span>Auto 9:16 &amp; 16:9 Media Transcoding</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                    <span>Multi-stage Post Approval Chains</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                    <span>First-Comment Hashtag Auto-post</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                    <span>Bulk CSV &amp; RSS Feed Import</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:col-span-5 bg-gradient-to-br from-maroon-900/10 via-burgundy-900/15 to-gold-400/10 dark:from-maroon-900/30 dark:via-burgundy-900/20 dark:to-gold-400/5 p-6 rounded-2xl border border-maroon-700/20 dark:border-maroon-700/40 text-left space-y-4">
+                <span className="text-xs font-bold text-maroon-700 dark:text-gold-400 uppercase tracking-wider block">Live Feed Simulator</span>
+                <div className="rounded-xl bg-white dark:bg-[#1A141A] p-4 shadow-sm border border-zinc-200 dark:border-surface-darkBorder/40 space-y-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-maroon-700 to-burgundy-600 text-white font-bold text-xs flex items-center justify-center">
+                      SH
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-zinc-950 dark:text-white">SocialHub Pro Global</p>
+                      <p className="text-[10px] text-zinc-500">Sponsored &bull; Just now</p>
+                    </div>
+                  </div>
+                  <div className="aspect-video w-full rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-xs font-bold text-zinc-500">
+                    Preview: 1080x1080 HD Reel / Carousel
+                  </div>
+                  <Link
+                    href="/dashboard/posts"
+                    className="block w-full py-2.5 rounded-xl bg-maroon-700 hover:bg-maroon-800 text-white font-bold text-xs text-center shadow-md transition-all"
+                  >
+                    Open Publishing Studio &rarr;
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. UNIFIED SOCIAL INBOX SECTION (#inbox) */}
+      <section id="inbox" className="py-24 sm:py-32 bg-white dark:bg-surface-darkBg border-t border-zinc-200 dark:border-surface-darkBorder/40 transition-colors scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 border border-blue-300 dark:border-blue-700/40 text-blue-900 dark:text-sky-300 text-xs font-bold uppercase tracking-wider">
+              <MessageSquare className="w-3.5 h-3.5 text-blue-700 dark:text-sky-400" />
+              <span>Real-Time Triage</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-black text-zinc-950 dark:text-white tracking-tight font-sans">
+              Unified Social Inbox
+            </h2>
+            <p className="text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed font-medium">
+              Every customer message, comment, mention, and review from all connected social accounts funneled into one high-velocity team inbox.
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto rounded-3xl bg-zinc-50/80 dark:bg-surface-darkCard border border-zinc-200 dark:border-surface-darkBorder/60 shadow-xl p-6 sm:p-8 space-y-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-zinc-200 dark:border-zinc-800">
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-bold text-zinc-950 dark:text-white">Active Priority Stream</span>
+                <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-400 text-xs font-bold">14 Unread Inbound</span>
+              </div>
+              <span className="text-xs font-semibold text-zinc-600 dark:text-zinc-400">Average First Response SLA: <strong className="text-zinc-950 dark:text-white">3m 45s</strong></span>
+            </div>
+
+            <div className="space-y-3">
+              <div className="p-4 rounded-2xl bg-white dark:bg-[#140F14] border border-zinc-200 dark:border-surface-darkBorder/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <span className="w-9 h-9 rounded-xl bg-pink-500 text-white font-bold flex items-center justify-center shrink-0">IG</span>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <p className="text-xs font-bold text-zinc-950 dark:text-white">Elena Rostova</p>
+                      <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300 font-bold">High Intent</span>
+                    </div>
+                    <p className="text-xs text-zinc-600 dark:text-zinc-300 mt-0.5">&quot;Can we book a demonstration for our enterprise team of 45 editors?&quot;</p>
+                  </div>
+                </div>
+                <Link href="/dashboard/inbox" className="px-3.5 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 text-xs font-bold text-zinc-950 dark:text-white transition-colors shrink-0">Reply in Inbox &rarr;</Link>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-white dark:bg-[#140F14] border border-zinc-200 dark:border-surface-darkBorder/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <span className="w-9 h-9 rounded-xl bg-blue-600 text-white font-bold flex items-center justify-center shrink-0">in</span>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <p className="text-xs font-bold text-zinc-950 dark:text-white">Zenith Marketing Group</p>
+                      <span className="text-[10px] px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300 font-bold">Mention</span>
+                    </div>
+                    <p className="text-xs text-zinc-600 dark:text-zinc-300 mt-0.5">&quot;Excited to name @SocialHubPro as our primary social infrastructure partner!&quot;</p>
+                  </div>
+                </div>
+                <Link href="/dashboard/inbox" className="px-3.5 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 text-xs font-bold text-zinc-950 dark:text-white transition-colors shrink-0">Reply in Inbox &rarr;</Link>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-white dark:bg-[#140F14] border border-zinc-200 dark:border-surface-darkBorder/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <span className="w-9 h-9 rounded-xl bg-black text-white font-bold flex items-center justify-center shrink-0">𝕏</span>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <p className="text-xs font-bold text-zinc-950 dark:text-white">Alex Dev</p>
+                      <span className="text-[10px] px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-300 font-bold">Product Review</span>
+                    </div>
+                    <p className="text-xs text-zinc-600 dark:text-zinc-300 mt-0.5">&quot;The official OAuth token rotation works seamlessly. No dropped drops ever.&quot;</p>
+                  </div>
+                </div>
+                <Link href="/dashboard/inbox" className="px-3.5 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 text-xs font-bold text-zinc-950 dark:text-white transition-colors shrink-0">Reply in Inbox &rarr;</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. ADVANCED ANALYTICS SECTION (#analytics) */}
+      <section id="analytics" className="py-24 sm:py-32 bg-zinc-50/70 dark:bg-[#130F14] border-t border-zinc-200 dark:border-surface-darkBorder/40 transition-colors scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-100 dark:bg-gold-900/40 border border-gold-300 dark:border-gold-700/40 text-amber-900 dark:text-gold-300 text-xs font-bold uppercase tracking-wider">
+              <BarChart3 className="w-3.5 h-3.5 text-amber-700 dark:text-gold-400" />
+              <span>Graph API Attribution</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-black text-zinc-950 dark:text-white tracking-tight font-sans">
+              Cross-Network Performance Analytics
+            </h2>
+            <p className="text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed font-medium">
+              Eliminate guesswork with real Graph API analytics. Track audience growth, reach velocity, engagement heatmaps, and ROI conversion attribution across all 9 networks.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <div className="p-6 rounded-3xl bg-white dark:bg-surface-darkCard border border-zinc-200 dark:border-surface-darkBorder/60 shadow-sm space-y-2">
+              <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider">Total Impressions</span>
+              <p className="text-3xl font-black text-zinc-950 dark:text-white">14,248,900</p>
+              <span className="text-xs text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
+                <TrendingUp className="w-3.5 h-3.5" /> +34.2% vs previous period
+              </span>
+            </div>
+
+            <div className="p-6 rounded-3xl bg-white dark:bg-surface-darkCard border border-zinc-200 dark:border-surface-darkBorder/60 shadow-sm space-y-2">
+              <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider">Average Engagement</span>
+              <p className="text-3xl font-black text-maroon-700 dark:text-gold-400">6.84%</p>
+              <span className="text-xs text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
+                <TrendingUp className="w-3.5 h-3.5" /> 3.1x industry benchmark
+              </span>
+            </div>
+
+            <div className="p-6 rounded-3xl bg-white dark:bg-surface-darkCard border border-zinc-200 dark:border-surface-darkBorder/60 shadow-sm space-y-2">
+              <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider">Audience Retention</span>
+              <p className="text-3xl font-black text-zinc-950 dark:text-white">94.7%</p>
+              <span className="text-xs text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
+                <TrendingUp className="w-3.5 h-3.5" /> +8.1% organic growth
+              </span>
+            </div>
+
+            <div className="p-6 rounded-3xl bg-white dark:bg-surface-darkCard border border-zinc-200 dark:border-surface-darkBorder/60 shadow-sm space-y-2">
+              <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider">Pipeline Attribution</span>
+              <p className="text-3xl font-black text-emerald-600 dark:text-emerald-400">$384,200</p>
+              <span className="text-xs text-zinc-600 dark:text-zinc-400 font-bold flex items-center gap-1">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> Direct conversions
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* HOW IT WORKS */}
-      <section className="py-24 bg-surface-lightBg/50 dark:bg-[#130F13] border-y border-surface-lightBorder dark:border-surface-darkBorder/40">
+      <section className="py-24 bg-zinc-50/70 dark:bg-[#130F13] border-y border-zinc-200 dark:border-surface-darkBorder/40 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-xs font-bold text-gold-400 uppercase tracking-widest font-sans">
+            <span className="text-xs font-bold text-maroon-700 dark:text-gold-400 uppercase tracking-widest font-sans">
               Streamlined Architecture
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-surface-lightText dark:text-white tracking-tight font-sans">
+            <h2 className="text-3xl sm:text-4xl font-black text-zinc-950 dark:text-white tracking-tight font-sans">
               How SOCIALHUB PRO Accelerates Growth
             </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((st) => (
-              <div key={st.num} className="space-y-3 p-6 rounded-2xl bg-white dark:bg-surface-darkCard border border-surface-lightBorder dark:border-surface-darkBorder/50">
-                <span className="text-3xl font-black text-gold-400 font-mono block">{st.num}</span>
-                <h4 className="text-base font-bold text-surface-lightText dark:text-white">{st.title}</h4>
-                <p className="text-xs text-surface-lightMuted leading-relaxed">{st.desc}</p>
+              <div key={st.num} className="space-y-3 p-6 rounded-2xl bg-white dark:bg-surface-darkCard border border-zinc-200 dark:border-surface-darkBorder/50 shadow-sm">
+                <span className="text-3xl font-black text-maroon-700 dark:text-gold-400 font-mono block">{st.num}</span>
+                <h4 className="text-base font-bold text-zinc-950 dark:text-white">{st.title}</h4>
+                <p className="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed font-medium">{st.desc}</p>
               </div>
             ))}
           </div>
@@ -376,10 +586,10 @@ export default function LandingPage() {
       <section className="py-24 sm:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-bold text-gold-400 uppercase tracking-widest font-sans">
+            <span className="text-xs font-bold text-maroon-700 dark:text-gold-400 uppercase tracking-widest font-sans">
               Trusted Worldwide
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-surface-lightText dark:text-white tracking-tight font-sans">
+            <h2 className="text-3xl sm:text-4xl font-black text-zinc-950 dark:text-white tracking-tight font-sans">
               Loved By Modern Marketing Leaders
             </h2>
           </div>
@@ -388,20 +598,20 @@ export default function LandingPage() {
             {testimonials.map((t, idx) => (
               <div
                 key={idx}
-                className="p-8 rounded-3xl bg-white dark:bg-surface-darkCard border border-surface-lightBorder dark:border-surface-darkBorder/60 shadow-sm flex flex-col justify-between space-y-6"
+                className="p-8 rounded-3xl bg-white dark:bg-surface-darkCard border border-zinc-200 dark:border-surface-darkBorder/60 shadow-sm flex flex-col justify-between space-y-6"
               >
-                <p className="text-xs sm:text-sm text-surface-lightText dark:text-[#E8E2E4] italic leading-relaxed">
+                <p className="text-xs sm:text-sm text-zinc-800 dark:text-[#E8E2E4] italic leading-relaxed font-medium">
                   &ldquo;{t.quote}&rdquo;
                 </p>
-                <div className="flex items-center gap-3 pt-4 border-t border-surface-lightBorder dark:border-surface-darkBorder/40">
+                <div className="flex items-center gap-3 pt-4 border-t border-zinc-200 dark:border-surface-darkBorder/40">
                   <img
                     src={t.avatar}
                     alt={t.author}
                     className="w-12 h-12 rounded-full object-cover border border-gold-400/50"
                   />
                   <div>
-                    <h4 className="text-xs font-bold text-surface-lightText dark:text-white">{t.author}</h4>
-                    <p className="text-[10px] text-surface-lightMuted">{t.title}</p>
+                    <h4 className="text-xs font-bold text-zinc-950 dark:text-white">{t.author}</h4>
+                    <p className="text-[10px] text-zinc-500 dark:text-zinc-400 font-medium">{t.title}</p>
                   </div>
                 </div>
               </div>
@@ -411,35 +621,35 @@ export default function LandingPage() {
       </section>
 
       {/* PRICING PLANS */}
-      <section id="pricing" className="py-24 bg-surface-lightBg/50 dark:bg-[#130F13] border-y border-surface-lightBorder dark:border-surface-darkBorder/40">
+      <section id="pricing" className="py-24 bg-zinc-50/70 dark:bg-[#130F13] border-y border-zinc-200 dark:border-surface-darkBorder/40 transition-colors scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <span className="text-xs font-bold text-gold-400 uppercase tracking-widest font-sans">
+            <span className="text-xs font-bold text-maroon-700 dark:text-gold-400 uppercase tracking-widest font-sans">
               Transparent Pricing
             </span>
-            <h2 className="text-3xl sm:text-5xl font-black text-surface-lightText dark:text-white tracking-tight font-sans">
+            <h2 className="text-3xl sm:text-5xl font-black text-zinc-950 dark:text-white tracking-tight font-sans">
               Scalable Tiers for Any Stage
             </h2>
-            <p className="text-xs sm:text-sm text-surface-lightMuted">
+            <p className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 font-medium">
               All plans include real OAuth integrations, master calendar, and 14-day money-back guarantee.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {/* Starter */}
-            <div className="p-8 rounded-3xl bg-white dark:bg-surface-darkCard border border-surface-lightBorder dark:border-surface-darkBorder/60 shadow-sm flex flex-col justify-between space-y-6">
+            <div className="p-8 rounded-3xl bg-white dark:bg-surface-darkCard border border-zinc-200 dark:border-surface-darkBorder/60 shadow-sm flex flex-col justify-between space-y-6">
               <div className="space-y-4">
-                <h3 className="text-lg font-bold text-surface-lightText dark:text-white">Starter Tier</h3>
-                <p className="text-xs text-surface-lightMuted">For boutique creator brands and startups.</p>
-                <div className="text-3xl font-black text-surface-lightText dark:text-white">$49<span className="text-xs font-normal text-surface-lightMuted">/month</span></div>
-                <div className="space-y-2 pt-4 border-t border-surface-lightBorder dark:border-surface-darkBorder/40 text-xs">
-                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gold-400" /> Up to 5 Social Accounts</p>
-                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gold-400" /> 1 Team Seat</p>
-                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gold-400" /> Master Calendar &amp; Drafts</p>
-                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gold-400" /> Standard 30-Day Metrics</p>
+                <h3 className="text-lg font-bold text-zinc-950 dark:text-white">Starter Tier</h3>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-medium">For boutique creator brands and startups.</p>
+                <div className="text-3xl font-black text-zinc-950 dark:text-white">$49<span className="text-xs font-normal text-zinc-500">/month</span></div>
+                <div className="space-y-2 pt-4 border-t border-zinc-200 dark:border-surface-darkBorder/40 text-xs font-semibold text-zinc-700 dark:text-zinc-300">
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-gold-400" /> Up to 5 Social Accounts</p>
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-gold-400" /> 1 Team Seat</p>
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-gold-400" /> Master Calendar &amp; Drafts</p>
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-gold-400" /> Standard 30-Day Metrics</p>
                 </div>
               </div>
-              <Link href="/register" className="w-full text-center py-3 rounded-xl bg-surface-darkHover border border-surface-darkBorder text-gold-300 font-semibold text-xs">
+              <Link href="/register" className="w-full text-center py-3 rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-surface-darkHover border border-zinc-300 dark:border-surface-darkBorder text-zinc-950 dark:text-gold-300 font-bold text-xs transition-colors">
                 Start Free Trial
               </Link>
             </div>
@@ -451,9 +661,9 @@ export default function LandingPage() {
               </span>
               <div className="space-y-4">
                 <h3 className="text-lg font-bold text-white">Professional Team</h3>
-                <p className="text-xs text-surface-lightMuted">For fast-growing companies and marketing teams.</p>
-                <div className="text-3xl font-black text-white">$99<span className="text-xs font-normal text-surface-lightMuted">/month</span></div>
-                <div className="space-y-2 pt-4 border-t border-maroon-700/40 text-xs">
+                <p className="text-xs text-zinc-300">For fast-growing companies and marketing teams.</p>
+                <div className="text-3xl font-black text-white">$99<span className="text-xs font-normal text-zinc-400">/month</span></div>
+                <div className="space-y-2 pt-4 border-t border-maroon-700/40 text-xs font-medium">
                   <p className="flex items-center gap-2 text-white"><CheckCircle2 className="w-4 h-4 text-gold-400" /> Up to 15 Social Accounts</p>
                   <p className="flex items-center gap-2 text-white"><CheckCircle2 className="w-4 h-4 text-gold-400" /> 5 Team Seats &amp; Approvals</p>
                   <p className="flex items-center gap-2 text-white"><CheckCircle2 className="w-4 h-4 text-gold-400" /> Unified Social Inbox</p>
@@ -467,19 +677,19 @@ export default function LandingPage() {
             </div>
 
             {/* Enterprise */}
-            <div className="p-8 rounded-3xl bg-white dark:bg-surface-darkCard border border-surface-lightBorder dark:border-surface-darkBorder/60 shadow-sm flex flex-col justify-between space-y-6">
+            <div className="p-8 rounded-3xl bg-white dark:bg-surface-darkCard border border-zinc-200 dark:border-surface-darkBorder/60 shadow-sm flex flex-col justify-between space-y-6">
               <div className="space-y-4">
-                <h3 className="text-lg font-bold text-surface-lightText dark:text-white">Global Enterprise</h3>
-                <p className="text-xs text-surface-lightMuted">For multi-brand organizations and global agencies.</p>
-                <div className="text-3xl font-black text-surface-lightText dark:text-white">$199<span className="text-xs font-normal text-surface-lightMuted">/month</span></div>
-                <div className="space-y-2 pt-4 border-t border-surface-lightBorder dark:border-surface-darkBorder/40 text-xs">
-                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gold-400" /> Unlimited Social Accounts</p>
-                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gold-400" /> Unlimited Seats &amp; Custom RBAC</p>
-                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gold-400" /> White-Label Reports &amp; Exports</p>
-                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-gold-400" /> 99.99% Uptime SLA Guarantee</p>
+                <h3 className="text-lg font-bold text-zinc-950 dark:text-white">Global Enterprise</h3>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-medium">For multi-brand organizations and global agencies.</p>
+                <div className="text-3xl font-black text-zinc-950 dark:text-white">$199<span className="text-xs font-normal text-zinc-500">/month</span></div>
+                <div className="space-y-2 pt-4 border-t border-zinc-200 dark:border-surface-darkBorder/40 text-xs font-semibold text-zinc-700 dark:text-zinc-300">
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-gold-400" /> Unlimited Social Accounts</p>
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-gold-400" /> Unlimited Seats &amp; Custom RBAC</p>
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-gold-400" /> White-Label Reports &amp; Exports</p>
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-gold-400" /> 99.99% Uptime SLA Guarantee</p>
                 </div>
               </div>
-              <Link href="/register" className="w-full text-center py-3 rounded-xl bg-surface-darkHover border border-surface-darkBorder text-gold-300 font-semibold text-xs">
+              <Link href="/register" className="w-full text-center py-3 rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-surface-darkHover border border-zinc-300 dark:border-surface-darkBorder text-zinc-950 dark:text-gold-300 font-bold text-xs transition-colors">
                 Request Custom Trial
               </Link>
             </div>
@@ -491,10 +701,10 @@ export default function LandingPage() {
       <section className="py-24 sm:py-32">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center space-y-3">
-            <span className="text-xs font-bold text-gold-400 uppercase tracking-widest font-sans">
+            <span className="text-xs font-bold text-maroon-700 dark:text-gold-400 uppercase tracking-widest font-sans">
               Frequently Asked Questions
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-surface-lightText dark:text-white tracking-tight font-sans">
+            <h2 className="text-3xl sm:text-4xl font-black text-zinc-950 dark:text-white tracking-tight font-sans">
               Common Inquiries Answered
             </h2>
           </div>
@@ -503,21 +713,21 @@ export default function LandingPage() {
             {faqs.map((faq, idx) => (
               <div
                 key={idx}
-                className="rounded-2xl bg-white dark:bg-surface-darkCard border border-surface-lightBorder dark:border-surface-darkBorder/60 overflow-hidden"
+                className="rounded-2xl bg-white dark:bg-surface-darkCard border border-zinc-200 dark:border-surface-darkBorder/60 shadow-sm overflow-hidden"
               >
                 <button
                   onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
-                  className="w-full p-5 text-left flex items-center justify-between text-sm font-bold text-surface-lightText dark:text-white"
+                  className="w-full p-5 text-left flex items-center justify-between text-sm font-bold text-zinc-950 dark:text-white"
                 >
                   <span>{faq.q}</span>
                   <ChevronDown
-                    className={`w-4 h-4 text-gold-400 transition-transform ${
+                    className={`w-4 h-4 text-maroon-700 dark:text-gold-400 transition-transform ${
                       activeFaq === idx ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
                 {activeFaq === idx && (
-                  <div className="px-5 pb-5 text-xs sm:text-sm text-surface-lightMuted leading-relaxed border-t border-surface-lightBorder dark:border-surface-darkBorder/40 pt-3">
+                  <div className="px-5 pb-5 text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed border-t border-zinc-200 dark:border-surface-darkBorder/40 pt-3 font-medium">
                     {faq.a}
                   </div>
                 )}

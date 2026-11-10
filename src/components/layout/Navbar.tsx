@@ -36,10 +36,10 @@ export function Navbar() {
             <Link
               key={link.label}
               href={link.href}
-              className={`text-sm font-semibold transition-colors ${
+              className={`text-sm font-bold tracking-tight transition-colors ${
                 pathname === link.href
-                  ? 'text-maroon-700 dark:text-gold-400 font-bold'
-                  : 'text-zinc-800 hover:text-maroon-700 dark:text-zinc-300 dark:hover:text-gold-400'
+                  ? 'text-maroon-700 dark:text-gold-400 font-extrabold'
+                  : 'text-zinc-950 hover:text-maroon-700 dark:text-zinc-100 dark:hover:text-gold-400'
               }`}
             >
               {link.label}
@@ -53,7 +53,7 @@ export function Navbar() {
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="p-2 rounded-xl text-zinc-700 dark:text-zinc-300 hover:text-maroon-700 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-surface-darkCard/80 border border-transparent hover:border-zinc-300 dark:hover:border-maroon-700/40 transition-all"
+            className="p-2 rounded-xl text-zinc-950 dark:text-zinc-200 hover:text-maroon-700 dark:hover:text-gold-400 hover:bg-zinc-100 dark:hover:bg-surface-darkCard/80 border border-zinc-200 dark:border-maroon-700/40 transition-all"
           >
             {theme === 'dark' ? (
               <Sun className="w-5 h-5 text-gold-400" />
@@ -74,7 +74,7 @@ export function Navbar() {
             <div className="flex items-center gap-3">
               <Link
                 href="/login"
-                className="px-4 py-2 text-sm font-bold text-zinc-800 hover:text-maroon-700 dark:text-zinc-200 dark:hover:text-white transition-colors"
+                className="px-4 py-2 text-sm font-black text-zinc-950 hover:text-maroon-700 dark:text-zinc-100 dark:hover:text-gold-300 transition-colors"
               >
                 Sign In
               </Link>
@@ -94,13 +94,13 @@ export function Navbar() {
         <div className="flex md:hidden items-center gap-2">
           <button
             onClick={toggleTheme}
-            className="p-2 text-zinc-700 dark:text-zinc-300 hover:text-maroon-700 dark:hover:text-gold-400"
+            className="p-2 text-zinc-950 dark:text-zinc-200 hover:text-maroon-700 dark:hover:text-gold-400"
           >
             {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-surface-darkCard"
+            className="p-2 rounded-lg text-zinc-950 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-surface-darkCard"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -121,7 +121,7 @@ export function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block text-base font-bold text-zinc-800 hover:text-maroon-700 dark:text-zinc-200 dark:hover:text-gold-400"
+                className="block text-base font-extrabold text-zinc-950 hover:text-maroon-700 dark:text-zinc-100 dark:hover:text-gold-400"
               >
                 {link.label}
               </Link>
@@ -140,7 +140,7 @@ export function Navbar() {
                   <Link
                     href="/login"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="w-full text-center py-2.5 rounded-xl border border-zinc-300 dark:border-surface-darkBorder text-zinc-800 dark:text-white font-bold"
+                    className="w-full text-center py-2.5 rounded-xl border border-zinc-300 dark:border-surface-darkBorder text-zinc-950 dark:text-white font-extrabold"
                   >
                     Sign In
                   </Link>

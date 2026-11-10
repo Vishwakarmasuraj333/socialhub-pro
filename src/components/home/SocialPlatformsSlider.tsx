@@ -149,24 +149,24 @@ export function SocialPlatformsSlider() {
   const duplicatedPlatforms = [...platforms, ...platforms, ...platforms];
 
   return (
-    <section className="py-16 border-y border-surface-lightBorder dark:border-surface-darkBorder/40 bg-surface-lightBg/60 dark:bg-[#0B080C] relative overflow-hidden">
+    <section className="py-16 border-y border-zinc-200 dark:border-surface-darkBorder/40 bg-zinc-50/70 dark:bg-[#0B080C] relative overflow-hidden transition-colors">
       {/* Subtle Ambient Radial Lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[250px] bg-gradient-to-r from-maroon-700/15 via-gold-400/10 to-burgundy-600/15 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 mb-10 relative z-10">
         {/* Header Eyebrow */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-maroon-900/30 border border-gold-400/30 text-gold-300 text-[11px] font-bold uppercase tracking-wider shadow-sm">
-          <ShieldCheck className="w-3.5 h-3.5 text-gold-400" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-maroon-100 dark:bg-maroon-900/40 border border-maroon-300 dark:border-gold-400/30 text-maroon-900 dark:text-gold-300 text-[11px] font-bold uppercase tracking-wider shadow-sm">
+          <ShieldCheck className="w-3.5 h-3.5 text-maroon-700 dark:text-gold-400" />
           <span>Official Partner Architecture &bull; 100% OAuth 2.0 PKCE</span>
         </div>
 
         {/* Master Section Heading */}
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-surface-lightText dark:text-white tracking-tight font-sans">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-zinc-950 dark:text-white tracking-tight font-sans">
           Official Direct OAuth 2.0 Integration With Global Networks
         </h2>
 
         {/* Subtitle */}
-        <p className="text-xs sm:text-sm text-surface-lightMuted max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 max-w-2xl mx-auto leading-relaxed font-medium">
           Direct cloud connections with Meta, Google, ByteDance, LinkedIn, X, Pinterest, Snapchat, and Kick.
           Zero fragile scrapers, enterprise-grade token rotation, and 99.9% publishing reliability.
         </p>
@@ -175,10 +175,10 @@ export function SocialPlatformsSlider() {
       {/* CONTINUOUS MARQUEE SLIDER ("slider slider hote rhe proepr all do") */}
       <div className="relative w-full overflow-hidden">
         {/* Left Edge Fade Mask */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-r from-surface-lightBg dark:from-[#0B080C] via-surface-lightBg/80 dark:via-[#0B080C]/80 to-transparent z-20 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-r from-zinc-50 dark:from-[#0B080C] via-zinc-50/80 dark:via-[#0B080C]/80 to-transparent z-20 pointer-events-none" />
 
         {/* Right Edge Fade Mask */}
-        <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-l from-surface-lightBg dark:from-[#0B080C] via-surface-lightBg/80 dark:via-[#0B080C]/80 to-transparent z-20 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-l from-zinc-50 dark:from-[#0B080C] via-zinc-50/80 dark:via-[#0B080C]/80 to-transparent z-20 pointer-events-none" />
 
         {/* Sliding Infinite Track */}
         <motion.div
@@ -195,7 +195,7 @@ export function SocialPlatformsSlider() {
           {duplicatedPlatforms.map((p, index) => (
             <div
               key={`${p.id}-${index}`}
-              className={`group relative p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#161017]/95 border ${p.borderColor} shadow-lg hover:shadow-2xl ${p.glow} backdrop-blur-xl transition-all duration-300 min-w-[280px] sm:min-w-[320px] max-w-[320px] flex flex-col justify-between cursor-pointer select-none`}
+              className={`group relative p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#161017]/95 border ${p.borderColor} shadow-md hover:shadow-xl ${p.glow} backdrop-blur-xl transition-all duration-300 min-w-[280px] sm:min-w-[320px] max-w-[320px] flex flex-col justify-between cursor-pointer select-none`}
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-center gap-3">
@@ -206,25 +206,25 @@ export function SocialPlatformsSlider() {
                   </div>
                   <div>
                     <div className="flex items-center gap-1.5">
-                      <h3 className="text-sm font-bold text-surface-lightText dark:text-white">
+                      <h3 className="text-sm font-bold text-zinc-950 dark:text-white">
                         {p.name}
                       </h3>
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
                     </div>
-                    <span className="text-[10px] font-semibold text-gold-400 uppercase tracking-wider block">
+                    <span className="text-[10px] font-bold text-maroon-700 dark:text-gold-400 uppercase tracking-wider block">
                       {p.apiBadge}
                     </span>
                   </div>
                 </div>
 
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold shrink-0">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 text-[9px] font-bold shrink-0">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
                   Synced
                 </span>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-surface-lightBorder dark:border-white/5">
-                <p className="text-[11px] text-surface-lightMuted leading-relaxed">
+              <div className="mt-4 pt-3 border-t border-zinc-100 dark:border-white/5">
+                <p className="text-[11px] text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
                   {p.scope}
                 </p>
               </div>
@@ -235,15 +235,15 @@ export function SocialPlatformsSlider() {
 
       {/* Security Assurance Guarantee Pill */}
       <div className="max-w-7xl mx-auto px-4 mt-8 text-center">
-        <div className="inline-flex flex-wrap items-center justify-center gap-6 text-xs text-surface-lightMuted">
+        <div className="inline-flex flex-wrap items-center justify-center gap-6 text-xs text-zinc-700 dark:text-zinc-300 font-semibold">
           <span className="flex items-center gap-1.5">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Automated OAuth 2.0 Token Refresh
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> Automated OAuth 2.0 Token Refresh
           </span>
           <span className="flex items-center gap-1.5">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> AES-256 GCM Token Encryption
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> AES-256 GCM Token Encryption
           </span>
           <span className="flex items-center gap-1.5">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Zero Raw Password Storage
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> Zero Raw Password Storage
           </span>
         </div>
       </div>

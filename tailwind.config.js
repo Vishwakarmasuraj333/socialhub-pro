@@ -35,16 +35,16 @@ module.exports = {
           900: '#5C3F24',
         },
         surface: {
-          lightBg: '#F8F6F5',
+          lightBg: '#FFFFFF',
           darkBg: '#100D10',
           darkCard: '#1C171C',
           darkBorder: '#2C222A',
           darkHover: '#251E24',
           darkSubtle: '#332731',
-          lightText: '#252025',
-          lightMuted: '#91858C',
+          lightText: '#09090B',
+          lightMuted: '#52525B',
           lightCard: '#FFFFFF',
-          lightBorder: '#EADEEC',
+          lightBorder: '#E4E4E7',
         }
       },
       fontFamily: {

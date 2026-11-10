@@ -18,7 +18,7 @@ interface PlatformNode {
 export function SocialOrbitalAnimation() {
   const [isPaused, setIsPaused] = useState(false);
 
-  // 7 Global Supported Networks at 360 / 7 = 51.43 deg intervals
+  // 9 Global Supported Networks at 360 / 9 = 40 deg intervals
   const platforms: PlatformNode[] = [
     {
       id: 'instagram',
@@ -38,7 +38,7 @@ export function SocialOrbitalAnimation() {
       id: 'facebook',
       name: 'Facebook',
       sub: 'Pages & Groups',
-      angle: 51.43,
+      angle: 40,
       color: 'text-blue-400',
       bgGradient: 'from-blue-600 via-indigo-600 to-blue-800',
       glow: 'shadow-[0_0_20px_rgba(37,99,235,0.4)]',
@@ -52,7 +52,7 @@ export function SocialOrbitalAnimation() {
       id: 'youtube',
       name: 'YouTube',
       sub: 'Shorts & 4K',
-      angle: 102.86,
+      angle: 80,
       color: 'text-red-400',
       bgGradient: 'from-red-600 via-rose-600 to-red-800',
       glow: 'shadow-[0_0_20px_rgba(239,68,68,0.4)]',
@@ -66,7 +66,7 @@ export function SocialOrbitalAnimation() {
       id: 'linkedin',
       name: 'LinkedIn',
       sub: 'B2B Network',
-      angle: 154.29,
+      angle: 120,
       color: 'text-sky-400',
       bgGradient: 'from-blue-600 via-sky-600 to-indigo-700',
       glow: 'shadow-[0_0_20px_rgba(14,165,233,0.4)]',
@@ -80,7 +80,7 @@ export function SocialOrbitalAnimation() {
       id: 'tiktok',
       name: 'TikTok',
       sub: 'Viral Reach',
-      angle: 205.71,
+      angle: 160,
       color: 'text-cyan-400',
       bgGradient: 'from-cyan-500 via-teal-600 to-rose-500',
       glow: 'shadow-[0_0_20px_rgba(6,182,212,0.4)]',
@@ -94,7 +94,7 @@ export function SocialOrbitalAnimation() {
       id: 'twitter',
       name: 'X (Twitter)',
       sub: 'Real-time Feed',
-      angle: 257.14,
+      angle: 200,
       color: 'text-zinc-200',
       bgGradient: 'from-zinc-700 via-zinc-800 to-zinc-950',
       glow: 'shadow-[0_0_20px_rgba(255,255,255,0.25)]',
@@ -108,13 +108,41 @@ export function SocialOrbitalAnimation() {
       id: 'pinterest',
       name: 'Pinterest',
       sub: 'Rich Pins',
-      angle: 308.57,
+      angle: 240,
       color: 'text-rose-400',
       bgGradient: 'from-red-600 via-rose-700 to-red-900',
       glow: 'shadow-[0_0_20px_rgba(244,63,94,0.4)]',
       icon: (
         <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.334 1.374-.053.224-.174.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.367 18.624 0 12.017 0z" />
+        </svg>
+      ),
+    },
+    {
+      id: 'snapchat',
+      name: 'Snapchat',
+      sub: 'Stories & Spotlight',
+      angle: 280,
+      color: 'text-amber-300',
+      bgGradient: 'from-amber-400 via-yellow-400 to-amber-500',
+      glow: 'shadow-[0_0_20px_rgba(250,204,21,0.45)]',
+      icon: (
+        <svg className="w-5 h-5 text-black" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.001 2.25c-3.75 0-6.75 2.876-6.75 6.42 0 1.047.26 2.036.726 2.9-.387.525-1.127.834-1.976.834-.239 0-.465-.025-.678-.073-.131-.03-.27.025-.328.147-.058.122-.016.269.09.349.882.668 2.015 1.077 3.25 1.077.214 0 .425-.012.632-.036.568 1.488 1.942 2.569 3.606 2.836-.61.353-1.458.583-2.428.583-.497 0-.962-.061-1.385-.172-.132-.035-.27.019-.333.138-.063.12-.027.268.077.354 1.144.945 2.651 1.503 4.298 1.503 1.072 0 2.083-.24 2.977-.665.894.425 1.905.665 2.977.665 1.647 0 3.154-.558 4.298-1.503.104-.086.14-.234.077-.354-.063-.119-.201-.173-.333-.138-.423.111-.888.172-1.385.172-.97 0-1.818-.23-2.428-.583 1.664-.267 3.038-1.348 3.606-2.836.207.024.418.036.632.036 1.235 0 2.368-.409 3.25-1.077.106-.08.148-.227.09-.349-.058-.122-.197-.177-.328-.147-.213.048-.439.073-.678.073-.849 0-1.589-.309-1.976-.834.466-.864.726-1.853.726-2.9 0-3.544-3-6.42-6.75-6.42z" />
+        </svg>
+      ),
+    },
+    {
+      id: 'kick',
+      name: 'Kick',
+      sub: 'Live Streams & Chat',
+      angle: 320,
+      color: 'text-emerald-400',
+      bgGradient: 'from-emerald-400 via-green-500 to-emerald-600',
+      glow: 'shadow-[0_0_20px_rgba(16,185,129,0.45)]',
+      icon: (
+        <svg className="w-5 h-5 text-black" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M4 3h5v5h2V6h2V4h7v5h-4v2h4v2h-4v2h4v5h-7v-2h-2v-2H9v5H4V3zm5 8h2v2H9v-2z" />
         </svg>
       ),
     },
@@ -221,7 +249,7 @@ export function SocialOrbitalAnimation() {
 
         <div className="mt-1 flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-          <span className="text-[9px] font-bold text-emerald-400">7 Active</span>
+          <span className="text-[9px] font-bold text-emerald-400">9 Active</span>
         </div>
       </motion.div>
 
@@ -230,7 +258,7 @@ export function SocialOrbitalAnimation() {
         <div className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
         <Zap className="w-3.5 h-3.5 text-gold-400" />
         <span className="text-xs font-semibold text-zinc-100">
-          Real-Time Sync: <strong className="text-gold-300 font-bold">7 Channels Connected</strong>
+          Real-Time Sync: <strong className="text-gold-300 font-bold">9 Channels Connected</strong>
         </span>
       </div>
     </div>
