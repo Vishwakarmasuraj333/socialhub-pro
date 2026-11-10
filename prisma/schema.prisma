@@ -1,0 +1,340 @@
+// SOCIALHUB PRO - Prisma Schema
+// Enterprise-Grade Social Media Management Platform
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String       @id @default(uuid())
+  email             String       @unique
+  passwordHash      String
+  name              String
+  avatar            String?
+  role              String       @default("ADMIN") // OWNER, ADMIN, MANAGER, EDITOR, ANALYST
+  isEmailVerified   Boolean      @default(false)
+  twoFactorEnabled  Boolean      @default(false)
+  twoFactorSecret   String?
+  status            String       @default("ACTIVE") // ACTIVE, SUSPENDED, PENDING
+  organizationId    String?
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+
+  organization      Organization? @relation(fields: [organizationId], references: [id], onDelete: SetNull)
+  profile           Profile?
+  sessions          Session[]
+  otpCodes          OtpVerification[]
+  resetTokens       PasswordResetToken[]
+  posts             Post[]
+  socialAccounts    SocialAccount[]
+  teamMemberships   TeamMember[]
+  assignedMessages  Conversation[] @relation("AssignedToUser")
+  sentMessages      Message[]
+  notifications     Notification[]
+  auditLogs         AuditLog[]
+  blogPosts         BlogPost[]
+  createdStories    Story[]
+}
+
+model Profile {
+  id              String   @id @default(uuid())
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bio             String?
+  phone           String?
+  timezone        String   @default("UTC")
+  language        String   @default("en")
+  themePreference String   @default("dark") // dark, light, system
+  jobTitle        String?
+  company         String?
+  website         String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Session {
+  id           String   @id @default(uuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  token        String   @unique
+  userAgent    String?
+  ipAddress    String?
+  expiresAt    DateTime
+  createdAt    DateTime @default(now())
+  lastActiveAt DateTime @default(now())
+}
+
+model OtpVerification {
+  id          String   @id @default(uuid())
+  userId      String?
+  user        User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  email       String
+  code        String
+  type        String   // REGISTER, LOGIN_2FA, PASSWORD_RESET
+  expiresAt   DateTime
+  isUsed      Boolean  @default(false)
+  attempts    Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+model PasswordResetToken {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  token     String   @unique
+  expiresAt DateTime
+  isUsed    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Organization {
+  id             String         @id @default(uuid())
+  name           String
+  slug           String         @unique
+  logo           String?
+  plan           String         @default("PRO") // STARTER, PRO, ENTERPRISE
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  users          User[]
+  teams          Team[]
+  socialAccounts SocialAccount[]
+  subscriptions  Subscription[]
+  posts          Post[]
+  stories        Story[]
+  auditLogs      AuditLog[]
+}
+
+model Team {
+  id             String       @id @default(uuid())
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  name           String
+  description    String?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  members        TeamMember[]
+}
+
+model TeamMember {
+  id         String   @id @default(uuid())
+  teamId     String
+  team       Team     @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role       String   @default("MEMBER") // ADMIN, MANAGER, EDITOR, ANALYST
+  createdAt  DateTime @default(now())
+
+  @@unique([teamId, userId])
+}
+
+model SocialAccount {
+  id             String       @id @default(uuid())
+  userId         String
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  organizationId String?
+  organization   Organization? @relation(fields: [organizationId], references: [id], onDelete: SetNull)
+  platform       String       // INSTAGRAM, FACEBOOK, YOUTUBE, LINKEDIN, TIKTOK, TWITTER, PINTEREST
+  platformUserId String
+  accountName    String
+  username       String
+  avatarUrl      String?
+  followersCount Int          @default(0)
+  followingCount Int          @default(0)
+  status         String       @default("CONNECTED") // CONNECTED, DISCONNECTED, TOKEN_EXPIRED, PENDING
+  scope          String?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  oauthToken     OAuthToken?
+  posts          PostSocialAccount[]
+  stories        Story[]
+  conversations  Conversation[]
+  analytics      AccountAnalytics[]
+
+  @@unique([platform, platformUserId])
+}
+
+model OAuthToken {
+  id              String        @id @default(uuid())
+  socialAccountId String        @unique
+  socialAccount   SocialAccount @relation(fields: [socialAccountId], references: [id], onDelete: Cascade)
+  accessToken     String
+  refreshToken    String?
+  tokenType       String        @default("Bearer")
+  expiresAt       DateTime?
+  updatedAt       DateTime      @updatedAt
+}
+
+model Post {
+  id             String              @id @default(uuid())
+  userId         String
+  user           User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  organizationId String?
+  organization   Organization?       @relation(fields: [organizationId], references: [id], onDelete: SetNull)
+  content        String
+  hashtags       String?
+  mediaUrls      String?             // JSON array string of media URLs
+  status         String              @default("DRAFT") // DRAFT, SCHEDULED, PUBLISHED, FAILED, PENDING_APPROVAL
+  scheduledAt    DateTime?
+  publishedAt    DateTime?
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+
+  socialAccounts PostSocialAccount[]
+  analytics      PostAnalytics?
+}
+
+model PostSocialAccount {
+  id              String        @id @default(uuid())
+  postId          String
+  post            Post          @relation(fields: [postId], references: [id], onDelete: Cascade)
+  socialAccountId String
+  socialAccount   SocialAccount @relation(fields: [socialAccountId], references: [id], onDelete: Cascade)
+  externalPostId  String?
+  publishStatus   String        @default("PENDING") // PENDING, PUBLISHED, FAILED
+  errorMessage    String?
+  publishedAt     DateTime?
+
+  @@unique([postId, socialAccountId])
+}
+
+model Story {
+  id              String        @id @default(uuid())
+  userId          String
+  user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  organizationId  String?
+  organization    Organization? @relation(fields: [organizationId], references: [id], onDelete: SetNull)
+  socialAccountId String
+  socialAccount   SocialAccount @relation(fields: [socialAccountId], references: [id], onDelete: Cascade)
+  mediaUrl        String
+  mediaType       String        @default("IMAGE") // IMAGE, VIDEO
+  caption         String?
+  status          String        @default("DRAFT") // DRAFT, SCHEDULED, ACTIVE, ARCHIVED
+  scheduledAt     DateTime?
+  publishedAt     DateTime?
+  expiresAt       DateTime?
+  viewsCount      Int           @default(0)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+model Conversation {
+  id              String        @id @default(uuid())
+  socialAccountId String
+  socialAccount   SocialAccount @relation(fields: [socialAccountId], references: [id], onDelete: Cascade)
+  externalId      String?
+  senderName      String
+  senderUsername  String?
+  senderAvatar    String?
+  type            String        @default("DIRECT_MESSAGE") // DIRECT_MESSAGE, COMMENT, MENTION, REVIEW
+  status          String        @default("OPEN") // OPEN, RESOLVED, PENDING
+  priority        String        @default("NORMAL") // LOW, NORMAL, HIGH, URGENT
+  assignedToId    String?
+  assignedTo      User?         @relation("AssignedToUser", fields: [assignedToId], references: [id], onDelete: SetNull)
+  lastMessageAt   DateTime      @default(now())
+  unread          Boolean       @default(true)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  messages        Message[]
+}
+
+model Message {
+  id             String       @id @default(uuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  senderType     String       // USER, CUSTOMER
+  senderUserId   String?
+  senderUser     User?        @relation(fields: [senderUserId], references: [id], onDelete: SetNull)
+  content        String
+  createdAt      DateTime     @default(now())
+}
+
+model AccountAnalytics {
+  id              String        @id @default(uuid())
+  socialAccountId String
+  socialAccount   SocialAccount @relation(fields: [socialAccountId], references: [id], onDelete: Cascade)
+  date            DateTime
+  followers       Int           @default(0)
+  impressions     Int           @default(0)
+  reach           Int           @default(0)
+  engagement      Int           @default(0)
+  clicks          Int           @default(0)
+}
+
+model PostAnalytics {
+  id          String   @id @default(uuid())
+  postId      String   @unique
+  post        Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  impressions Int      @default(0)
+  reach       Int      @default(0)
+  likes       Int      @default(0)
+  comments    Int      @default(0)
+  shares      Int      @default(0)
+  clicks      Int      @default(0)
+  updatedAt   DateTime @updatedAt
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  message   String
+  type      String   @default("INFO") // INFO, SUCCESS, WARNING, ERROR, PUBLISH, INBOX
+  link      String?
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model BlogPost {
+  id          String       @id @default(uuid())
+  slug        String       @unique
+  title       String
+  excerpt     String
+  content     String
+  coverImage  String?
+  authorId    String
+  author      User         @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  category    String       @default("Social Media Strategy")
+  tags        String       @default("growth,social-media,marketing")
+  published   Boolean      @default(true)
+  publishedAt DateTime?    @default(now())
+  readingTime String       @default("5 min read")
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model Subscription {
+  id                   String       @id @default(uuid())
+  organizationId       String
+  organization         Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  plan                 String       @default("PRO") // STARTER, PRO, ENTERPRISE
+  status               String       @default("ACTIVE") // ACTIVE, PAST_DUE, CANCELED
+  currentPeriodStart   DateTime     @default(now())
+  currentPeriodEnd     DateTime
+  stripeCustomerId     String?
+  stripeSubscriptionId String?
+  createdAt            DateTime     @default(now())
+  updatedAt            DateTime     @updatedAt
+}
+
+model AuditLog {
+  id             String        @id @default(uuid())
+  userId         String?
+  user           User?         @relation(fields: [userId], references: [id], onDelete: SetNull)
+  organizationId String?
+  organization   Organization? @relation(fields: [organizationId], references: [id], onDelete: SetNull)
+  action         String        // POST_CREATED, POST_PUBLISHED, ACCOUNT_CONNECTED, TEAM_INVITE, etc.
+  details        String?       // JSON string
+  ipAddress      String?
+  createdAt      DateTime      @default(now())
+}
+
